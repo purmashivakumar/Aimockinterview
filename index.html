@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Mock Interview Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="authPage" class="auth-page">
+  <div class="auth-card">
+    <div class="brand">🤖 AI Mock Interview</div>
+    <h1 id="authTitle">Welcome Back</h1>
+    <p id="authSub">Login to start your AI interview.</p>
+    <div id="signupFields" class="hidden">
+      <input id="signupName" placeholder="Full name" autocomplete="name">
+      <input id="signupConfirm" type="password" placeholder="Confirm password" autocomplete="new-password">
+    </div>
+    <input id="authEmail" type="email" placeholder="Email" autocomplete="email">
+    <input id="authPassword" type="password" placeholder="Password" autocomplete="current-password">
+    <button class="primary full" id="authBtn">Login</button>
+    <p class="switch" id="switchAuth">New user? <b>Create account</b></p>
+    <small id="authNote">Your account is saved in this browser for this demo.</small>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+<header>
+  <div class="brand">🤖 AI Mock Interview</div>
+  <nav>
+    <button data-page="dashboard">Dashboard</button>
+    <button data-page="subjects">50 Subjects</button>
+    <button data-page="interview">Interview</button>
+    <button id="logoutBtn">Logout</button>
+  </nav>
+</header>
+
+<main>
+<section id="dashboard" class="page active">
+  <div class="hero">
+    <div>
+      <span class="pill">AI CAREER PRACTICE</span>
+      <h1>Face-to-Face AI Mock Interview</h1>
+      <p>Upload your resume, choose a subject and practice with a speaking AI interviewer.</p>
+      <button class="primary" data-page="interview">Start Interview 🚀</button>
+    </div>
+    <div class="avatar-mini">🤖</div>
+  </div>
+  <div class="grid stats">
+    <div class="card"><b id="welcomeName">Candidate</b><span>Candidate</span></div>
+    <div class="card"><b>50</b><span>Technical Subjects</span></div>
+    <div class="card"><b>AI + Voice</b><span>Interview Mode</span></div>
+  </div>
+</section>
+
+<section id="subjects" class="page">
+  <div class="section-title"><h2>50 Interview Subjects</h2><p>Choose any subject for practice.</p></div>
+  <div id="subjectGrid" class="subject-grid"></div>
+</section>
+
+<section id="interview" class="page">
+  <div class="section-title"><h2>Setup Your Interview</h2><p>Upload your resume and the system will use its text to create resume-based questions.</p></div>
+  <div class="setup-grid">
+    <div class="card">
+      <label>Resume Upload</label>
+      <input id="resumeFile" type="file" accept=".txt,.pdf,.doc,.docx">
+      <p id="resumeStatus" class="muted">PDF/DOC/DOCX is accepted for upload. For this offline demo, TXT gives the best text extraction.</p>
+      <textarea id="resumeText" placeholder="Or paste your resume text here..."></textarea>
+      <label>Interview Subject</label>
+      <select id="subjectSelect"></select>
+      <label>Number of Questions</label>
+      <select id="questionCount"><option>5</option><option>10</option></select>
+      <button id="prepareBtn" class="primary full">Prepare AI Interview</button>
+    </div>
+
+    <div class="card preview">
+      <h3>How it works</h3>
+      <div class="step">1️⃣ Login / Sign up</div>
+      <div class="step">2️⃣ Upload or paste resume</div>
+      <div class="step">3️⃣ Select Java, C, C++, DSA or another subject</div>
+      <div class="step">4️⃣ Allow camera + microphone</div>
+      <div class="step">5️⃣ AI interviewer asks questions by voice</div>
+      <div class="step">6️⃣ Speak your answer face-to-face</div>
+      <div class="step">7️⃣ Get score and feedback</div>
+    </div>
+  </div>
+
+  <div id="interviewRoom" class="hidden">
+    <div class="room">
+      <div class="video-card">
+        <video id="camera" autoplay muted playsinline></video>
+        <div class="face-overlay" id="cameraStatus">📷 Camera</div>
+        <div class="ai-face">
+          <div class="eyes"><i></i><i></i></div><div class="mouth"></div>
+        </div>
+      </div>
+      <div class="chat-card">
+        <div class="room-head"><span>🔴 LIVE</span><span id="progress">Question 1/5</span></div>
+        <div class="question-box">
+          <small>AI INTERVIEWER</small>
+          <h2 id="liveQuestion">Preparing...</h2>
+          <p id="aiStatus">Click Speak Answer and talk.</p>
+        </div>
+        <div class="answer-preview"><b>Your answer:</b><textarea id="answerText" placeholder="Type your answer here, or click Speak Answer and answer by voice..."></textarea><p id="spokenAnswer" class="muted">Typing or speaking answer will appear here.</p></div>
+        <div class="room-actions">
+          <button id="speakBtn" class="primary">🎙️ Speak Answer</button><button id="typeBtn" class="secondary">⌨️ Type Answer</button>
+          <button id="stopSpeakBtn" class="secondary">⏹ Stop</button>
+          <button id="nextBtn" class="secondary">Next Question</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultPanel" class="card hidden">
+    <h2>🏆 Interview Result</h2>
+    <div class="score-large" id="finalScore">0%</div>
+    <h3 id="performanceText"></h3>
+    <p id="feedbackText"></p>
+    <div id="resultList"></div>
+    <button class="primary" id="newInterview">New Interview</button>
+  </div>
+</section>
+</main>
+<footer>AI Mock Interview Pro • Java • C • C++ • DSA • 50 Subjects • Resume Based Practice</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
